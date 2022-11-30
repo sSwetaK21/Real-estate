@@ -1,0 +1,54 @@
+/* light:#7070db */
+/* dark:#5c5cd6 */
+.nav-wrapper{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    margin: 1em 2em;
+}
+.header {
+    box-shadow: -7px 8px 11px -3px rgb(0 0 0 / 10%);
+    height: 10vh;
+}
+.nav-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-left{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+.brand-icon svg{
+        color: #5c5cd6;
+        font-size: 1.8em;
+    
+}
+.brand-name {
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+.n-list > ul {
+    display: flex;
+    gap: 2rem;
+    margin-right: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+button#dropdown-basic-button {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.MuiButton-outlinedPrimary.loginBtn{
+    margin: 0px 10px;
+}
+.btnpurple {
+    background-color: #5c5cd6 !important;
+    color: white !important;
+}

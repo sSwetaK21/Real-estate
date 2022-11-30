@@ -1,0 +1,111 @@
+{
+    "data": [{
+            "id": 0,
+            "date": "02/02/2022",
+            "name": "Palm Harbor",
+            "location": "15205 North Kierland Blvd. Suite 100, Newyork ",
+            "price": 3700,
+            "beds": 2,
+            "bathrooms": 2,
+            "type": "Bungalow",
+            "size": 1660,
+            "img": "https://www.nerdwallet.com/assets/blog/wp-content/uploads/2019/02/15-florida-first-time-home-buyer-programs-1440x864.jpg"
+        },
+        {
+            "id": 1,
+            "date": "01/01/2002",
+            "name": "The Old School House",
+            "location": "15205 854 Avocado Ave,Maryland",
+            "price": 4500,
+            "beds": 4,
+            "bathrooms": 2,
+            "type": "House",
+            "size": 1670,
+            "img": "https://www.nerdwallet.com/assets/blog/wp-content/uploads/2019/02/15-florida-first-time-home-buyer-programs-1440x864.jpg"
+        },
+        {
+            "id": 2,
+            "date": "04/02/2003",
+            "name": "The Bungalow",
+            "location": "854 Avocado Ave,Georgia ",
+            "price": 9000,
+            "beds": 1,
+            "bathrooms": 1,
+            "type": "Bangalow",
+            "size": 1700,
+            "img": "https://image.cnbcfm.com/api/v1/image/104576841-Luxemburg_Wisconsin.jpg?v=1529475631&w=929&h=523&ffmt=webp&vtcrop=y"
+        },
+        {
+            "id": 3,
+            "date": "07/03/2024",
+            "name": "Wisteria Cottages",
+            "location": "68---1330 Mauna Lani Dr. Bldg 1---A Kohala Coast,Maine",
+            "price": 4000,
+            "beds": 4,
+            "bathrooms": 5,
+            "type": "Cottage",
+            "size": 2000,
+            "img": "https://thumbs.dreamstime.com/b/modern-house-western-usa-3216584.jpg    "
+        },
+        {
+            "id": 4,
+            "date": "09/22/2022",
+            "name": "Newland Cottage",
+            "location": "2829 Ala Kalanikaumaka, Kukui'ula Village,Texas",
+            "price": 3000,
+            "beds": 3,
+            "bathrooms": 3,
+            "type": "Cottage",
+            "size": 2200,
+            "img": "https://cdn.homedsgn.com/wp-content/uploads/2011/04/EB1-Residence-00-1-750x562.jpg"
+        },
+        {
+            "id": 5,
+            "date": "08/22/2022",
+            "name": "Elmsgate",
+            "location": "Waikoloa Beach Resort, Unit D---8 250 Waikoloa Beach,Newyork",
+            "price": 1700,
+            "beds": 8,
+            "bathrooms": 3,
+            "type": "House",
+            "size": 2260,
+            "img": "https://thumbs.dreamstime.com/b/typical-american-house-18239889.jpg"
+        },
+        {
+            "id": 6,
+            "date": "08/21/2022",
+            "name": "Bulverton House",
+            "location": "2F, 4035-1 Ikenobecho, Tsuzuki-ku, Yokohama 224-0053,Texas",
+            "price": 2000,
+            "beds": 2,
+            "bathrooms": 4,
+            "type": "House",
+            "size": 2245,
+            "img": "https://www.souciehorner.com/wp-content/uploads/2017/04/TRUE-HOMES_DESIGNER_IMG01-1536.jpg"
+        },
+        {
+            "id": 7,
+            "date": "03/31/2022",
+            "name": "Lealands",
+            "location": "4F, 52 Nishiiru Shincho, Shijyo-dori Kawaramachi,North Dakota",
+            "price": 2100,
+            "beds": 4,
+            "bathrooms": 3,
+            "type": "House",
+            "size": 2300,
+            "img": "https://www.souciehorner.com/wp-content/uploads/2017/04/TRUE-HOMES_DESIGNER_IMG01-1536.jpg"
+        },
+        {
+            "id": 8,
+            "date": "01/16/2022",
+            "name": "Rosemary House",
+            "location": "8F, 5-24-2, Sendagaya, Shibuya-ku,Iowa",
+            "price": 5000,
+            "beds": 4,
+            "bathrooms": 2,
+            "type": "House",
+            "size": 3000,
+            "img": "https://i.pinimg.com/564x/2d/02/f6/2d02f65d1f63af62d815faae84b535e4.jpg"
+        }
+    ]
+}

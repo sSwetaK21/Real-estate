@@ -1,0 +1,41 @@
+.cardIcons {
+    display: flex;
+}
+
+.cardIcons .InnerCard{
+    margin: 0px 7px 0px 0px;
+}
+.cardIcons .InnerCard svg {
+    margin: 0px 4px;
+    font-size: 16px;
+}
+span.spandiv {
+    font-size: 16px;
+}
+.cardFlex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardbox{
+    margin: 1em;
+}
+span.favourite {
+    position: absolute;
+    right: 10px;
+    border: 1px solid #00000026;
+    padding: 3px 5px;
+    border-radius: 25px;
+}
+li:hover{
+    color: #5c5cd6;
+    font-weight: 500;
+    /* padding: 2px 5px; */
+}
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 18px 10px;
+
+}
