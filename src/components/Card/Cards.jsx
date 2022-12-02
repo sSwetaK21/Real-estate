@@ -30,7 +30,7 @@ function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFa
         return (
             // card div here
         <div className='cardbox' key={id}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card  className='card_child'>
                 <CardActionArea>
                     <CardMedia
                         component="img"
@@ -38,24 +38,24 @@ function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFa
                         image={img}
                         alt="green iguana"
                     />
-                    <CardContent>
+                    <CardContent className="card_content">
                         <Typography gutterBottom variant="h2" component="div" style={{ color: "#5c5cd6", fontSize: 22, fontWeight: 600 }} >
                             $ {price}
                             <span className='spandiv' >/months </span>
                           
-                            {isClicked ? (
+                            {isClicked && (
                                 <span
                                     onClick={() => {
                                         setFavs([...favs, cardValues]);  
                                         setActive(!active);
                   
                                     }}
-                                    className={ active ? "bgPurple favourite" : "white favourite" }
+                                    className={ `${active?"bgPurple": "white"} favourite` }
                                     
                                 >
                                     <AiOutlineHeart/>
                                 </span>
-                            ) : null}
+                            ) }
 
                         </Typography>
                         <Typography gutterBottom variant="h2" component="div" style={{ fontSize: 20, fontWeight: 600 }} >

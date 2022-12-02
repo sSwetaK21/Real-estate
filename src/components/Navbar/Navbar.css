@@ -1,17 +1,18 @@
 /* light:#7070db */
 /* dark:#5c5cd6 */
 .nav-wrapper {
-    height: 10vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     top: 0;
     margin: 1em 2em;
+    align-items: center;
+
 }
 
 .header {
     box-shadow: 0px 20px 20px 2px rgb(0 0 0 / 10%);
-    height: 9vh;
+    padding: 2px;
 }
 
 .nav-brand {
@@ -78,6 +79,10 @@ a.nav-links {
     font-weight: 600;
 
 }
+.nav-right .nav-btn .mr{
+    margin: 0;
+    margin-right: 8px;
+}
 
 .n-links:hover {
     color: #5c5cd6;
@@ -125,5 +130,13 @@ a.nav-links {
     
     .n-list>ul {
         gap: 10px;
+    }
+
+   
+}
+
+@media screen and (max-width : 759px){
+    body{
+        width: 100%;
     }
 }

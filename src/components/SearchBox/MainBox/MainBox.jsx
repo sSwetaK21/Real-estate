@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import {Button, Box} from '@mui/material';
 
 import Cards from '../../Card/Cards';
 
@@ -162,7 +160,7 @@ function MainBox({ favs, setFavs }) {
                         return (
 
                             <Cards name={name} location={location} beds={beds} img={img}
-                                bathrooms={bathrooms} price={price} size={size} isClicked={true} favs={favs}
+                                bathrooms={bathrooms} price={price} size={size} isClicked favs={favs}
                                 setFavs={setFavs}
                             />
                         )

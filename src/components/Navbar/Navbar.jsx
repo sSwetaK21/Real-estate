@@ -27,6 +27,7 @@ function Navbar() {
                             Estatery
                         </div>
                     </div>
+                    
                   
                     <div className="n-list nav_links  nav_show">
                         <ul style={{ listStyleType: "none" }}>
@@ -77,7 +78,7 @@ function Navbar() {
                 {/* right side */}
                 <div className='nav-right'>
                     <div className='nav-btn'>
-                        <Button variant="outlined" sx={{ m: 1 }}>Login</Button>
+                        <Button variant="outlined" className='mr'>Login</Button>
                         <Button className='btnpurple' >Signup</Button>
                     </div>
 
