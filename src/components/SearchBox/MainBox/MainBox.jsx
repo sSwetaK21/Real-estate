@@ -20,7 +20,7 @@ function MainBox({ favs, setFavs }) {
 
     useEffect(() => {
         axios
-            .get("https://frozen-harbor-02472.herokuapp.com/datas")
+            .get("database.json")
             .then((res) => {
                 // console.log(res.data)
                 setCards(res.data)
@@ -47,7 +47,8 @@ function MainBox({ favs, setFavs }) {
 
             let dateOne = new Date(loc.date).getTime();
             let dateTwo = new Date(value.date).getTime();
-            if (value.location.toLowerCase().includes(loc.locName.toLowerCase()) && (value.type === loc.house || loc.house === "") && ((parseInt(priceRange[0]) <= value.price &&
+            if (value.location.toLowerCase().includes(loc.locName.toLowerCase()) && (value.type === loc.house || loc.house === "") && 
+            ((parseInt(priceRange[0]) <= value.price &&
                 parseInt(priceRange[1]) >= value.price) || loc.price === "") && (dateOne >= dateTwo || loc.date === "")
             ) {
                 return value
@@ -115,13 +116,13 @@ function MainBox({ favs, setFavs }) {
                             <h6 className='dropdownNames'>Price</h6>
                             <select id="dropdown" name="price" onChange={(e) => { setLoc({ ...loc, price: e.target.value }) }}>
                                 <option value="N/A">Price</option>
-                                <option value="1000-10000" name="price">
+                                <option value="1000-3000" name="price">
                                     1000-3000
                                 </option>
-                                <option value="10001-20000" name="price">
+                                <option value="3000-6000" name="price">
                                     3000-6000
                                 </option>
-                                <option value="20001- 40000" name="price">
+                                <option value="6000- 9000" name="price">
                                     6000- 9000
                                 </option>
                             </select>
@@ -157,7 +158,7 @@ function MainBox({ favs, setFavs }) {
                     {/* Fetching cards */}
             <div className='cardFlex'>
                 {
-                    cards.map(({ img, name, location, price, size, beds, bathrooms }) => {
+                    cards.length ? cards.map(({ img, name, location, price, size, beds, bathrooms }) => {
                         return (
 
                             <Cards name={name} location={location} beds={beds} img={img}
@@ -166,8 +167,8 @@ function MainBox({ favs, setFavs }) {
                             />
                         )
                     }
-
                     )
+                    : "no results found"
                 }
 
             </div>
