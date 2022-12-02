@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import { FaEnvelopeOpen } from "react-icons/fa";
 import Button from '@mui/material/Button';
+import { FaBars } from "react-icons/fa";
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -10,7 +11,7 @@ import "./Navbar.css";
 
 function Navbar() {
 
-
+    // const [navbar, setNavbar] = useState(false)
 
     return (
         <div className='header'>
@@ -25,32 +26,38 @@ function Navbar() {
                             Estatery
                         </div>
                     </div>
-                    <div className="n-list">
+                    {/* <button  onClick={() => {
+                        setNavbar(!navbar)
+                    }}
+                        className={navbar ? "nav_show toggle " : "nav_links toggle"}                    >
+                        <FaBars />
+                    </button> */}
+                    <div className="n-list nav_links  nav_show">
                         <ul style={{ listStyleType: "none" }}>
-                            <li>
+                            <li className='nav-li'>
                                 <Link to='/' activeClass="active" spy={true} smooth={true} className="nav-links">
                                     Rent
                                 </Link>
 
                             </li>
-                            <li>
+                            <li className='nav-li'>
                                 <Link to="/Buy" spy={true} smooth={true} className="nav-links">
                                     Buy
                                 </Link>
 
                             </li>
-                            <li>
+                            <li className='nav-li'>
                                 <Link to="/Sell" spy={true} smooth={true} className="nav-links">
                                     Sell
                                 </Link>
 
                             </li>
-                            <li>
+                            <li className='nav-li'>
                                 <Link to="/Favs" spy={true} smooth={true} className="nav-links">
                                     Favorites
                                 </Link>
                             </li>
-                            <li>
+                            <li >
                                 <DropdownButton id="dropdown-basic-button" title="Manage Property">
                                     <Dropdown.Item href="#/action-1">
                                         Actions
@@ -60,7 +67,7 @@ function Navbar() {
 
                                 </DropdownButton>
                             </li>
-                            <li>
+                            <li >
                                 <DropdownButton id="dropdown-basic-button" title="Resources" >
                                     <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                                     <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>

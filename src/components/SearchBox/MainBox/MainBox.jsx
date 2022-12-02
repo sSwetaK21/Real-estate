@@ -39,20 +39,21 @@ function MainBox({ favs, setFavs }) {
     const handleDropdownSearch = () => {
         let priceRange = loc.price.split("-")
 
+        // eslint-disable-next-line array-callback-return
         const dropDownsSearch = dropdowns.filter((value) => {
-            console.log(value)
 
             let dateOne = new Date(loc.date).getTime();
             let dateTwo = new Date(value.date).getTime();
-            if (value.location.toLowerCase().includes(loc.locName.toLowerCase()) && (value.type === loc.house || loc.house === "" ) && ((parseInt(priceRange[0]) <= value.price &&
+            if (value.location.toLowerCase().includes(loc.locName.toLowerCase()) && (value.type === loc.house || loc.house === "") && ((parseInt(priceRange[0]) <= value.price &&
                 parseInt(priceRange[1]) >= value.price) || loc.price === "") && (dateOne >= dateTwo || loc.date === "")
             ) {
-                
+
                 return value
-                
+
             }
 
             
+
         })
 
         setCards(dropDownsSearch)
@@ -61,7 +62,7 @@ function MainBox({ favs, setFavs }) {
 
     return (
 
-        <div>
+        <div className="body">
 
             <div className='main'>
                 <div className='searchLeft'>
@@ -71,7 +72,7 @@ function MainBox({ favs, setFavs }) {
                     <input type="text" className='saerchInput' value={searchName} placeholder="Search by Name" onChange={(e) => {
                         setsearchName(e.target.value)
                     }} />
-                    <Button className='btnpurple' onClick={handleSearchBar}>Search</Button>
+                    <Button    className='btnpurple' onClick={handleSearchBar}>Search</Button>
 
                 </div>
             </div>
@@ -79,8 +80,8 @@ function MainBox({ favs, setFavs }) {
             <div className='searchBox'>
                 <div className="loc" >
                     <Box sx={{ minWidth: 120 }}>
-                        <div className="elLoc">
-                            <p className='titles'>Location</p>
+                        <div className="elBorder">
+                            <p className='titles dropdownNames '>Location</p>
                             <select id="dropdown" name="locname" vale={loc.locName} onChange={(e) => { setLoc({ ...loc, locName: e.target.value }) }}>
                                 <option value="N/A">Location</option>
                                 <option value="Georgia" name="locname">
@@ -98,15 +99,19 @@ function MainBox({ favs, setFavs }) {
                 </div>
                 <div className='date'>
                     <Box sx={{ minWidth: 180 }}>
-                        <h6>Date</h6>
+                        <div className='elBorder'>
 
-                        <input type="date" id="dateinput" name="date" onChange={(e) => { setLoc({ ...loc, date: e.target.value }) }} />
+                            <h6 className='dropdownNames'>Date</h6>
+
+                            <input type="date" id="dateinput" name="date" onChange={(e) => { setLoc({ ...loc, date: e.target.value }) }} />
+                        </div>
+
                     </Box>
                 </div>
                 <div className='price'>
                     <Box sx={{ minWidth: 120 }}>
-                        <div className="elPrice">
-                            <h6>Price</h6>
+                        <div className="elBorder">
+                            <h6 className='dropdownNames'>Price</h6>
                             <select id="dropdown" name="price" onChange={(e) => { setLoc({ ...loc, price: e.target.value }) }}>
                                 <option value="N/A">Price</option>
                                 <option value="1000-10000" name="price">
@@ -124,8 +129,8 @@ function MainBox({ favs, setFavs }) {
                 </div>
                 <div className='house'>
                     <Box sx={{ minWidth: 120 }}>
-                        <div className="property">
-                            <h6>Property Type</h6>
+                        <div className="elBorder">
+                            <h6 className='dropdownNames'>Property Type</h6>
                             <select id="dropdown" name="type" onChange={(e) => { setLoc({ ...loc, house: e.target.value }) }}>
                                 <option value="House" name="type">
                                     House
@@ -145,14 +150,14 @@ function MainBox({ favs, setFavs }) {
                     </Box>
                 </div>
 
-                <Button className='btnpurple' onClick={handleDropdownSearch}>Filter</Button>
+                <Button sx={{ ml: '1rem' }}  className='btnpurple' onClick={handleDropdownSearch}>Filter</Button>
             </div>
 
             <div className='cardFlex'>
                 {
                     cards.map(({ img, name, location, price, size, beds, bathrooms }) => {
                         return (
-                           
+
                             <Cards name={name} location={location} beds={beds} img={img}
                                 bathrooms={bathrooms} price={price} size={size} isClicked={true} favs={favs}
                                 setFavs={setFavs}

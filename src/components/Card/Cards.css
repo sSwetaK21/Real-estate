@@ -1,6 +1,9 @@
 .cardIcons {
     display: flex;
 }
+.body{
+    background-color:#ededed;
+}
 
 .cardIcons .InnerCard{
     margin: 0px 7px 0px 0px;
@@ -32,6 +35,7 @@ span.spandiv {
 
 .main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin: 18px 10px;
@@ -39,24 +43,33 @@ span.spandiv {
 }
 input#dateinput,select#dropdown {
     border: none;
-    padding: 6px 8px;
+    padding: 2px 0px 6px;
     font-weight: 700;
 
 }
-.elPrice {
+ .dropdownNames{
+    margin: 0;
+    color: grey;
+    font-size: 13px;
+}
+.elBorder {
     border-right: 1px solid grey;
+    padding: 10px;
 }
 .titles{
     margin: 0px 0px 0px 10px;
 }
 .searchBox {
     display: flex;
-    height: 130px;
+    height: 100%;
     margin: 0 auto;
-    width: 970px;
+    width: 64%;
+    border-radius: 4px;
     justify-content: center;
-    box-shadow: 0px 2px 6px 1px rgb(0 0 0 / 75%);
+    box-shadow: 0px 1px 5px -1px rgb(0 0 0 / 75%);
     align-items: center;
+    background-color: white;
+
 }
 .searchrigt {
     display: flex;
@@ -76,4 +89,12 @@ input.saerchInput {
 .bgPurple{
     background-color: #5c5cd6;
     color: white;
+}
+
+/* Responsive here */
+
+@media only screen and (max-width: 600px) {
+    .elBorder{
+        border:none
+    }
 }

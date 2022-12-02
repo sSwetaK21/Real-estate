@@ -1,65 +1,118 @@
 /* light:#7070db */
 /* dark:#5c5cd6 */
-.nav-wrapper{
+.nav-wrapper {
     height: 10vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     top: 0;
     margin: 1em 2em;
 }
+
 .header {
-    box-shadow: -7px 8px 11px -3px rgb(0 0 0 / 10%);
-    height: 10vh;
+    box-shadow: 0px 20px 20px 2px rgb(0 0 0 / 10%);
+    height: 9vh;
 }
+
 .nav-brand {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.nav-left{
+.nav-left {
     display: flex;
     align-items: baseline;
     justify-content: center;
 }
-.brand-icon svg{
-        color: #5c5cd6;
-        font-size: 1.8em;
-    
+
+.brand-icon svg {
+    color: #5c5cd6;
+    font-size: 1.8em;
+
 }
+
 .brand-name {
     font-size: 22px;
     font-weight: 600;
     font-family: 'Roboto', sans-serif;
 }
-.n-list > ul {
+
+.n-list>ul {
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
     margin-right: 4rem;
     justify-content: center;
     align-items: center;
 }
+
 button#dropdown-basic-button {
     background-color: white;
     color: black;
     border: none;
 }
-
-.MuiButton-outlinedPrimary.loginBtn{
+.nav-li{
+    padding: 3px 4px;
+}
+.nav-li :hover{
+    color: #5c5cd6;
+    background-color: #cdcddb;
+    padding: 3px 4px;
+}
+.MuiButton-outlinedPrimary.loginBtn {
     margin: 0px 10px;
 }
+
 .btnpurple {
     background-color: #5c5cd6 !important;
     color: white !important;
 }
+
 a.nav-links {
     text-decoration: none;
     color: black;
     font-weight: 600;
 
 }
-.n-links:hover{
+
+.n-links:hover {
     color: #5c5cd6;
     font-weight: 500;
     /* padding: 2px 5px; */
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .nav-links>ul{
+        gap: 15px;
+    }
+
+    .nav-wrapper {
+        margin: 0px
+    }
+
+    .header {
+        height: 300px;
+    }
+
+    .searchBox {
+        display: flex;
+        height: 100%;
+        margin: 0;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}
+
+
+
+@media only screen and (min-width: 2400px){
+
+    .header {
+        height: 4vh;
+    }
 }
