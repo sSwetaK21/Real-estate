@@ -28,30 +28,36 @@ function Navbar() {
                     <div className="n-list">
                         <ul style={{ listStyleType: "none" }}>
                             <li>
-                                <Link to='/' activeClass="active" spy={true} smooth={true}>
+                                <Link to='/' activeClass="active" spy={true} smooth={true} className="nav-links">
                                     Rent
                                 </Link>
 
                             </li>
                             <li>
-                                <Link to="/Buy" spy={true} smooth={true}>
+                                <Link to="/Buy" spy={true} smooth={true} className="nav-links">
                                     Buy
                                 </Link>
 
                             </li>
                             <li>
-                                <Link to="/Sell" spy={true} smooth={true}>
+                                <Link to="/Sell" spy={true} smooth={true} className="nav-links">
                                     Sell
                                 </Link>
 
                             </li>
                             <li>
+                                <Link to="/Favs" spy={true} smooth={true} className="nav-links">
+                                    Favorites
+                                </Link>
+                            </li>
+                            <li>
                                 <DropdownButton id="dropdown-basic-button" title="Manage Property">
-                                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-3"><Link to="/Favs" spy={true} smooth={true}>
-                                        Favorites
-                                    </Link></Dropdown.Item>
+                                    <Dropdown.Item href="#/action-1">
+                                        Actions
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-2">Action</Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">Another action</Dropdown.Item>
+
                                 </DropdownButton>
                             </li>
                             <li>

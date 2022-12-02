@@ -1,4 +1,5 @@
 import './App.css';
+import React,{useState} from 'react'
 import Navbar from './components/Navbar/Navbar';
 import Cards from './components/Card/Cards'
 import MainBox from './components/SearchBox/MainBox/MainBox'
@@ -9,12 +10,13 @@ import Buy from './components/Buy/Buy';
 
 
 function App() {
+  const[favs,setFavs] = useState([]);
   return (
     <div className="App">
       <BrowserRouter >
         <Navbar />
         <Routes>
-          <Route path='/' element={<MainBox />}>
+          <Route path='/' element={<MainBox  favs={favs} setFavs={setFavs} />}>
             Rent
           </Route>
           <Route path='/Buy' element={<Buy />}>
@@ -23,7 +25,7 @@ function App() {
           <Route path='/Sell' element={<Sell />}>
             Sell
           </Route>
-          <Route path='/Favs' element={<Favs />}>
+          <Route path='/Favs' element={<Favs favs={favs} />}>
             Fav          
             </Route>
         </Routes>

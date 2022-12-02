@@ -1,33 +1,64 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
-import { IoBedOutline } from "react-icons/io5";
-import { GiBathtub } from "react-icons/gi";
-import { TbStack } from "react-icons/tb";
+
 import Button from '@mui/material/Button';
-import { AiOutlineHeart } from "react-icons/ai";
-import Form from 'react-bootstrap/Form';
+import Box from '@mui/material/Box';
 
-// import './components/Card/Card.css'
+import Cards from '../../Card/Cards';
 
+function MainBox({ favs, setFavs }) {
 
-function MainBox() {
-
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState([]);
+    const [searchName, setsearchName] = useState('');
+    const [dropdowns, setDropdowns] = useState([]);
+    const [loc, setLoc] = useState({
+        locName: '',
+        date: '',
+        price: "",
+        house: ""
+    })
 
     useEffect(() => {
         axios
             .get("https://frozen-harbor-02472.herokuapp.com/datas")
             .then((res) => {
-                console.log(res.data)
+                // console.log(res.data)
                 setCards(res.data)
+                setDropdowns(res.data)
             })
 
     }, [])
+
+    const handleSearchBar = () => {
+        const searching = cards.filter((val) => {
+            return val.name.toLowerCase().includes(searchName.toLowerCase())
+        })
+        setCards(searching);
+    };
+
+    const handleDropdownSearch = () => {
+        let priceRange = loc.price.split("-")
+
+        const dropDownsSearch = dropdowns.filter((value) => {
+            console.log(value)
+
+            let dateOne = new Date(loc.date).getTime();
+            let dateTwo = new Date(value.date).getTime();
+            if (value.location.toLowerCase().includes(loc.locName.toLowerCase()) && (value.type === loc.house || loc.house === "" ) && ((parseInt(priceRange[0]) <= value.price &&
+                parseInt(priceRange[1]) >= value.price) || loc.price === "") && (dateOne >= dateTwo || loc.date === "")
+            ) {
+                
+                return value
+                
+            }
+
+            
+        })
+
+        setCards(dropDownsSearch)
+        console.log(dropdowns, "dropdown")
+    }
+
     return (
 
         <div>
@@ -37,66 +68,95 @@ function MainBox() {
                     <h1 className='h1Title'>Search properties to rent</h1>
                 </div>
                 <div className='searchrigt'>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Enter email" />
-                        </Form.Group>
-                    </Form>
+                    <input type="text" className='saerchInput' value={searchName} placeholder="Search by Name" onChange={(e) => {
+                        setsearchName(e.target.value)
+                    }} />
+                    <Button className='btnpurple' onClick={handleSearchBar}>Search</Button>
+
                 </div>
             </div>
 
             <div className='searchBox'>
-                
+                <div className="loc" >
+                    <Box sx={{ minWidth: 120 }}>
+                        <div className="elLoc">
+                            <p className='titles'>Location</p>
+                            <select id="dropdown" name="locname" vale={loc.locName} onChange={(e) => { setLoc({ ...loc, locName: e.target.value }) }}>
+                                <option value="N/A">Location</option>
+                                <option value="Georgia" name="locname">
+                                    Georgia
+                                </option>
+                                <option value="Newyork" name="locname">
+                                    Newyork
+                                </option>
+                                <option value="Maryland" name="locname">
+                                    Maryland
+                                </option>
+                            </select>
+                        </div>
+                    </Box>
+                </div>
+                <div className='date'>
+                    <Box sx={{ minWidth: 180 }}>
+                        <h6>Date</h6>
+
+                        <input type="date" id="dateinput" name="date" onChange={(e) => { setLoc({ ...loc, date: e.target.value }) }} />
+                    </Box>
+                </div>
+                <div className='price'>
+                    <Box sx={{ minWidth: 120 }}>
+                        <div className="elPrice">
+                            <h6>Price</h6>
+                            <select id="dropdown" name="price" onChange={(e) => { setLoc({ ...loc, price: e.target.value }) }}>
+                                <option value="N/A">Price</option>
+                                <option value="1000-10000" name="price">
+                                    1000-3000
+                                </option>
+                                <option value="10001-20000" name="price">
+                                    3000-6000
+                                </option>
+                                <option value="20001- 40000" name="price">
+                                    6000- 9000
+                                </option>
+                            </select>
+                        </div>
+                    </Box>
+                </div>
+                <div className='house'>
+                    <Box sx={{ minWidth: 120 }}>
+                        <div className="property">
+                            <h6>Property Type</h6>
+                            <select id="dropdown" name="type" onChange={(e) => { setLoc({ ...loc, house: e.target.value }) }}>
+                                <option value="House" name="type">
+                                    House
+                                </option>
+                                <option value="Cottage" name="type">
+                                    Cottage
+                                </option>
+                                <option value="Bangalow" name="type">
+                                    Bangalow
+                                </option>
+                                <option value="Building" name="type">
+                                    Building
+                                </option>
+                            </select>
+
+                        </div>
+                    </Box>
+                </div>
+
+                <Button className='btnpurple' onClick={handleDropdownSearch}>Filter</Button>
             </div>
 
             <div className='cardFlex'>
                 {
-                    cards.map((value) => {
+                    cards.map(({ img, name, location, price, size, beds, bathrooms }) => {
                         return (
-                            <div key={value.id}>
-                                <div className='cardbox' >
-                                    <Card sx={{ width: 300, height: 330 }}>
-                                        <CardActionArea>
-                                            <CardMedia
-                                                component="img"
-                                                height="140"
-                                                image={value.img}
-                                                alt="green iguana"
-                                            />
-                                            <CardContent>
-                                                <Typography gutterBottom variant="h2" component="div" style={{ color: "#5c5cd6", fontSize: 22, fontWeight: 600 }} >
-                                                    $2,900
-                                                    <span className='spandiv' >/months </span>
-                                                    <span className='favourite'>
-                                                        <AiOutlineHeart />
-                                                    </span>
-                                                </Typography>
-                                                <Typography gutterBottom variant="h2" component="div" style={{ fontSize: 20, fontWeight: 600 }} >
-                                                    {value.name}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary" style={{ fontSize: 17 }}>
-                                                    {value.location}
-                                                </Typography>
-                                                <div className='cardIcons'>
-                                                    <div className='InnerCard'>
-                                                        <IoBedOutline />
-                                                        {value.beds}
-                                                    </div>
-                                                    <div className='InnerCard'>
-                                                        <GiBathtub />
-                                                        {value.bathrooms}
-                                                    </div>
-                                                    <div className='InnerCard'>
-                                                        <TbStack />
-                                                        {value.size} m<sup>2</sup>
-                                                    </div>
-                                                </div>
-
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Card>
-                                </div>
-                            </div>
+                           
+                            <Cards name={name} location={location} beds={beds} img={img}
+                                bathrooms={bathrooms} price={price} size={size} isClicked={true} favs={favs}
+                                setFavs={setFavs}
+                            />
                         )
                     }
 

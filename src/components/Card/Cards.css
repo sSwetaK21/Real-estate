@@ -15,27 +15,65 @@ span.spandiv {
 .cardFlex{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .cardbox{
     margin: 1em;
 }
-span.favourite {
+.favourite {
     position: absolute;
     right: 10px;
     border: 1px solid #00000026;
     padding: 3px 5px;
     border-radius: 25px;
 }
-li:hover{
-    color: #5c5cd6;
-    font-weight: 500;
-    /* padding: 2px 5px; */
-}
+
 .main {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 18px 10px;
 
+}
+input#dateinput,select#dropdown {
+    border: none;
+    padding: 6px 8px;
+    font-weight: 700;
+
+}
+.elPrice {
+    border-right: 1px solid grey;
+}
+.titles{
+    margin: 0px 0px 0px 10px;
+}
+.searchBox {
+    display: flex;
+    height: 130px;
+    margin: 0 auto;
+    width: 970px;
+    justify-content: center;
+    box-shadow: 0px 2px 6px 1px rgb(0 0 0 / 75%);
+    align-items: center;
+}
+.searchrigt {
+    display: flex;
+}
+input.saerchInput {
+    padding: 6px 2px;
+    border-radius: 4px;
+    border: 1px solid #adb5bd;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border: none !important;
+}
+.h1Title {
+    font-weight: 700;
+}
+
+.bgPurple{
+    background-color: #5c5cd6;
+    color: white;
 }

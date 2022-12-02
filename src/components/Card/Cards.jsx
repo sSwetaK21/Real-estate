@@ -7,45 +7,75 @@ import { CardActionArea, CardActions } from '@mui/material';
 import { IoBedOutline } from "react-icons/io5";
 import { GiBathtub } from "react-icons/gi";
 import { TbStack } from "react-icons/tb";
+import { AiOutlineHeart } from "react-icons/ai";
+import Button from '@mui/material/Button';
+
 
 import './Cards.css'
 
 
-function Cards() {
-    // const classes = useStyles()
-    return (
-        <div className='cardbox'>
+function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFavs,isClicked }) {
+    const cardValues = {
+        name,
+        location,
+        beds,
+        bathrooms,
+        price,
+        size,
+        img
+      };
+      const [active, setActive] = React.useState(false);
+
+        return (
+        <div className='cardbox' key={id}>
             <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         height="140"
-                        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7GCLlsnJWpN214aTwvRDa--EOMZQvdMGl00jAz8Zr1g&s"
+                        image={img}
                         alt="green iguana"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h2" component="div" style={{ color: "#5c5cd6", fontSize: 22, fontWeight: 600 }} >
-                            $2,900
-                            <span  className='spandiv' >/months </span>
+                            $ {price}
+                            <span className='spandiv' >/months </span>
+                            {/* <span className="heart" onClick={}>                      <AiOutlineHeart/>                             
+                            </span> */}
+                            {isClicked ? (
+                                <span
+                                    // className="favourite"
+                                    onClick={() => {
+                                        setFavs([...favs, cardValues]);  
+                                        setActive(!active);
+                  
+                                    }}
+                                    className={ active ? "bgPurple favourite" : "white favourite" }
+                                    
+                                >
+                                    <AiOutlineHeart/>
+                                </span>
+                            ) : null}
+
                         </Typography>
                         <Typography gutterBottom variant="h2" component="div" style={{ fontSize: 20, fontWeight: 600 }} >
-                            Palm Harbor
+                            {name}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary" style={{fontSize: 17}}>
-                            26/8, Georgia
+                        <Typography variant="body2" color="text.secondary" style={{ fontSize: 17 }}>
+                            {location}
                         </Typography>
                         <div className='cardIcons'>
                             <div className='InnerCard'>
                                 <IoBedOutline />
-                                Beds
+                                {beds}Beds
                             </div>
                             <div className='InnerCard'>
                                 <GiBathtub />
-                                Bathrooms
+                                {bathrooms} Bathrooms
                             </div>
                             <div className='InnerCard'>
                                 <TbStack />
-                                2x3 m<sup>2</sup>
+                                {size} m<sup>2</sup>
                             </div>
                         </div>
                     </CardContent>

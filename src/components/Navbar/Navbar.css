@@ -52,3 +52,14 @@ button#dropdown-basic-button {
     background-color: #5c5cd6 !important;
     color: white !important;
 }
+a.nav-links {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+
+}
+.n-links:hover{
+    color: #5c5cd6;
+    font-weight: 500;
+    /* padding: 2px 5px; */
+}
