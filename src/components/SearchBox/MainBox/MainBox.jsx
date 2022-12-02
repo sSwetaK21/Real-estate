@@ -29,6 +29,8 @@ function MainBox({ favs, setFavs }) {
 
     }, [])
 
+    // Searching by Name 
+
     const handleSearchBar = () => {
         const searching = cards.filter((val) => {
             return val.name.toLowerCase().includes(searchName.toLowerCase())
@@ -36,6 +38,7 @@ function MainBox({ favs, setFavs }) {
         setCards(searching);
     };
 
+    // filter fucntion here
     const handleDropdownSearch = () => {
         let priceRange = loc.price.split("-")
 
@@ -47,23 +50,19 @@ function MainBox({ favs, setFavs }) {
             if (value.location.toLowerCase().includes(loc.locName.toLowerCase()) && (value.type === loc.house || loc.house === "") && ((parseInt(priceRange[0]) <= value.price &&
                 parseInt(priceRange[1]) >= value.price) || loc.price === "") && (dateOne >= dateTwo || loc.date === "")
             ) {
-
                 return value
-
             }
-
-            
-
         })
 
         setCards(dropDownsSearch)
-        console.log(dropdowns, "dropdown")
     }
 
     return (
 
+        //Main body of Rent
         <div className="body">
 
+            {/* search by name */}
             <div className='main'>
                 <div className='searchLeft'>
                     <h1 className='h1Title'>Search properties to rent</h1>
@@ -76,6 +75,8 @@ function MainBox({ favs, setFavs }) {
 
                 </div>
             </div>
+
+                    {/* filtering div here */}
 
             <div className='searchBox'>
                 <div className="loc" >
@@ -153,6 +154,7 @@ function MainBox({ favs, setFavs }) {
                 <Button sx={{ ml: '1rem' }}  className='btnpurple' onClick={handleDropdownSearch}>Filter</Button>
             </div>
 
+                    {/* Fetching cards */}
             <div className='cardFlex'>
                 {
                     cards.map(({ img, name, location, price, size, beds, bathrooms }) => {

@@ -52,14 +52,17 @@ button#dropdown-basic-button {
     color: black;
     border: none;
 }
-.nav-li{
+
+.nav-li {
     padding: 3px 4px;
 }
-.nav-li :hover{
+
+.nav-li :hover {
     color: #5c5cd6;
     background-color: #cdcddb;
     padding: 3px 4px;
 }
+
 .MuiButton-outlinedPrimary.loginBtn {
     margin: 0px 10px;
 }
@@ -82,11 +85,11 @@ a.nav-links {
     /* padding: 2px 5px; */
 }
 
-
+/* Responsive here */
 
 @media only screen and (max-width: 600px) {
 
-    .nav-links>ul{
+    .nav-links>ul {
         gap: 15px;
     }
 
@@ -110,9 +113,17 @@ a.nav-links {
 
 
 
-@media only screen and (min-width: 2400px){
+@media only screen and (min-width: 2400px) {
 
     .header {
         height: 4vh;
+    }
+}
+
+
+@media screen and (min-device-width: 760px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    
+    .n-list>ul {
+        gap: 10px;
     }
 }

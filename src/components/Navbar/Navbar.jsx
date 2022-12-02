@@ -11,9 +11,10 @@ import "./Navbar.css";
 
 function Navbar() {
 
-    // const [navbar, setNavbar] = useState(false)
 
     return (
+
+        // Navbar Starts here
         <div className='header'>
             <div className='nav-wrapper' id='navBar'>
                 {/* Left */}
@@ -26,12 +27,7 @@ function Navbar() {
                             Estatery
                         </div>
                     </div>
-                    {/* <button  onClick={() => {
-                        setNavbar(!navbar)
-                    }}
-                        className={navbar ? "nav_show toggle " : "nav_links toggle"}                    >
-                        <FaBars />
-                    </button> */}
+                  
                     <div className="n-list nav_links  nav_show">
                         <ul style={{ listStyleType: "none" }}>
                             <li className='nav-li'>
@@ -77,6 +73,8 @@ function Navbar() {
                         </ul>
                     </div>
                 </div>
+
+                {/* right side */}
                 <div className='nav-right'>
                     <div className='nav-btn'>
                         <Button variant="outlined" sx={{ m: 1 }}>Login</Button>

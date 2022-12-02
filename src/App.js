@@ -1,7 +1,6 @@
 import './App.css';
 import React,{useState} from 'react'
 import Navbar from './components/Navbar/Navbar';
-import Cards from './components/Card/Cards'
 import MainBox from './components/SearchBox/MainBox/MainBox'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Sell from './components/Sell/Sell';

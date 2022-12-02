@@ -15,6 +15,7 @@ import './Cards.css'
 
 
 function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFavs,isClicked }) {
+
     const cardValues = {
         name,
         location,
@@ -27,6 +28,7 @@ function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFa
       const [active, setActive] = React.useState(false);
 
         return (
+            // card div here
         <div className='cardbox' key={id}>
             <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
@@ -40,11 +42,9 @@ function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFa
                         <Typography gutterBottom variant="h2" component="div" style={{ color: "#5c5cd6", fontSize: 22, fontWeight: 600 }} >
                             $ {price}
                             <span className='spandiv' >/months </span>
-                            {/* <span className="heart" onClick={}>                      <AiOutlineHeart/>                             
-                            </span> */}
+                          
                             {isClicked ? (
                                 <span
-                                    // className="favourite"
                                     onClick={() => {
                                         setFavs([...favs, cardValues]);  
                                         setActive(!active);
