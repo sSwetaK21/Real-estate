@@ -30,7 +30,7 @@ function Navbar() {
                     
                   
                     <div className="n-list nav_links  nav_show">
-                        <ul style={{ listStyleType: "none" }}>
+                        <ul >
                             <li className='nav-li'>
                                 <Link to='/' activeClass="active" spy={true} smooth={true} className="nav-links">
                                     Rent

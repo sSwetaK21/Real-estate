@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,7 +8,6 @@ import { IoBedOutline } from "react-icons/io5";
 import { GiBathtub } from "react-icons/gi";
 import { TbStack } from "react-icons/tb";
 import { AiOutlineHeart } from "react-icons/ai";
-import Button from '@mui/material/Button';
 
 
 import './Cards.css'
@@ -25,7 +24,7 @@ function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFa
         size,
         img
       };
-      const [active, setActive] = React.useState(false);
+      const [active, setActive] = useState(false);
 
         return (
             // card div here
@@ -39,7 +38,7 @@ function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFa
                         alt="green iguana"
                     />
                     <CardContent className="card_content">
-                        <Typography gutterBottom variant="h2" component="div" style={{ color: "#5c5cd6", fontSize: 22, fontWeight: 600 }} >
+                        <Typography gutterBottom variant="h2" component="div"  className="card_price"  >
                             $ {price}
                             <span className='spandiv' >/months </span>
                           
@@ -58,10 +57,10 @@ function Cards({ id,name, size, price, beds, bathrooms, location, img,favs,setFa
                             ) }
 
                         </Typography>
-                        <Typography gutterBottom variant="h2" component="div" style={{ fontSize: 20, fontWeight: 600 }} >
+                        <Typography gutterBottom variant="h2" component="div" className='cardDiv'  >
                             {name}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary" style={{ fontSize: 17 }}>
+                        <Typography variant="body2" color="text.secondary"  className='cardfont' >
                             {location}
                         </Typography>
                         <div className='cardIcons'>
