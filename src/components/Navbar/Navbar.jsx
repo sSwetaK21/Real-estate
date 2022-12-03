@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import { FaEnvelopeOpen } from "react-icons/fa";
 import Button from '@mui/material/Button';
-import { FaBars } from "react-icons/fa";
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton'
